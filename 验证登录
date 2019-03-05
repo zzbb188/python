@@ -1,0 +1,55 @@
+
+class xitong:
+    def kongzhi(self):
+        print("登录请选1，注册请选2，退出请选3")
+        w = int(input("请输入你的选项："))
+        if w == 1:
+            self.denglu()
+        if w == 2:
+            self.zhuce()
+        if w == 0:
+            print("退出成功")
+        if not w ==1 and not w == 2 and not w == 0:
+            print("输入有误")
+
+
+    def __init__(self):
+        self.dict_1 = {"小明":"123","小红":"456"}
+
+    def denglu(self):
+        for i in range(0,3):
+            self.a_1 = input("请输入用户名：")
+            if self.a_1 in self.dict_1:
+                self.mina()
+                break
+            else:
+                print("你输入的用户名错误，请重新输入，仅剩%d机会" % (2-i))
+
+    def mina(self):
+        for i in range(0, 3):
+            self.b_1 = input("请输入密码：")
+            if self.b_1 == self.dict_1[self.a_1]:
+                print("登录成功")
+                break
+            else:
+                print("你输入的用户名错误，请重新输入,仅剩%d机会" % (2 - i))
+            print("登录失败")
+
+    def zhuce(self):
+        self.c_1 = input("输入注册用户名：")
+        self.c_2 = input("请输入注册密码：")
+        if self.c_1 in self.dict_1:
+            print("请重新输入名称")
+            self.zhuce()
+
+        self.dict_1[self.c_1] = self.c_2
+        print("恭喜你，注册成功")
+
+f = xitong()
+f.kongzhi()
+
+
+
+
+
+
